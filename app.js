@@ -1,7 +1,7 @@
 'use strict';
 
 var table = document.getElementById('table_content');
-var data = [];
+// var hours = [];
 var stores = [];
 
 function Store(location, minSale, maxSale, avgCookiesPerSale) {
@@ -9,28 +9,27 @@ function Store(location, minSale, maxSale, avgCookiesPerSale) {
   this.minSale = minSale;
   this.maxSale = maxSale;
   this.avgCookiesPerSale = avgCookiesPerSale;
-  this.totalCookies = 0,
-  this.time = time [
+  this.totalCookies = 0;
+  this.time = [
     '6am', '7am', '8am','9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'
   ];
+  this.cookiesPh = [];
 }
-// Store.prototype.randomCustomer() {
-//   var min = this.minSale;
-//   var max = this.maxSale;
-//   return Math.floor(Math.random() * (max - min) + min); //this code creates the  number
-// }
-//
-// Store.prototype.cookiesSoldPerHour() {
-//   var hoursAndCookies = []; //array that is gets filled by the hoursAndCookies.push
-//   var totalCookies = 0; //the starting at 0 and gets added by each sale to create total hour
-//   for (var i = 0; i < this.time.length; i++) {
-//     var cookiesPerHour =  Math.floor(this.randomCustomer() * this.avgCookiesPerSale); // use to shorten code
-//     hoursAndCookies.push([this.time[i],cookiesPerHour]); //use to push hoursAndCookies to the empty array
-//     totalCookies = totalCookies + cookiesPerHour; //this defines the var totalCookies in this function.
-//   }
-//   this.totalCookies = totalCookies; // this defines the object totalCookies
-//   return hoursAndCookies;
-// };
+
+Store.prototype.cookiesSoldPerHour = function() {
+  var min = this.minSale;
+  var max = this.maxSale;
+  var hoursAndCookies = []; //array that is gets filled by the hoursAndCookies.push
+  var totalCookies = 0; //the starting at 0 and gets added by each sale to create total hour
+  for (var i = 0; i < this.time.length; i++) {
+    var ramdonNum = Math.floor(Math.random() * (max - min) + min);
+    var cookiesPerHour =  Math.floor(ramdonNum * this.avgCookiesPerSale); // use to shorten code
+    hoursAndCookies.push(this.time[i] + ': ' + cookiesPerHour); //use to push hoursAndCookies to the empty array
+    totalCookies = totalCookies + cookiesPerHour; //this defines the var totalCookies in this function.
+  }
+  this.totalCookies = totalCookies; // this defines the object totalCookies
+  this.cookiesPh = hoursAndCookies;
+};
 
 
 
@@ -40,29 +39,37 @@ var seattleCenter = new Store('Seattle Center', 11, 38, 3.7);
 var capitolHill = new Store('Capitol Hill', 20, 38, 2.7);
 var alki = new Store('Alki', 2, 16, 4.6);
 
+console.log('store 1', firstAndPike);
+
 stores.push(firstAndPike);
 stores.push(seaTacAirport);
 stores.push(seattleCenter);
 stores.push(capitolHill);
-tores.push(alki);
+stores.push(alki);
 
-for (var i = 0; i < cars.length; i++) {
-  data.push(
-    '<td>' + stores[i].make + '</td>' +
-    '<td>' + stores[i].model + '</td>' +
-    '<td>' + stores[i].year + '</td>' +
-    '<td>' + stores[i].mileage + '</td>'
-  );
-}
+console.log('array of stores', stores);
 
+for (var i = 0; i < stores.length; i++) {
+  stores[i].cookiesSoldPerHour();
+  var hours = [];
+  console.log(stores[i].cookiesPh);
+  for (var k = 0; k < stores[i].time.length; k++) {
+    hours.push(
+      '<td>' + stores[i].cookiesPh[k] + '</td>'
+    );
+  };
+};
 var newRow;
 
-for (var j = 0; j < data.length; j++) {
+for (var j = 0; j < stores[0].time.length; j++) {
   newRow = document.createElement('tr');
-  newRow.innerHTML = data[j];
+  newRow.innerHTML = hours[j];
   table.appendChild(newRow);
 }
 
+//this is the old data!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // var shops = [firstAndPike,seaTacAirport,seattleCenter,capitolHill,alki]; //creating a array of all the stores from above
 // for (var j = 0; j < shops.length; j++) {
