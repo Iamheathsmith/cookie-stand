@@ -1,0 +1,48 @@
+/* app style */
+
+
+body {
+  font-family: sans-serif, Georgia, Times,;
+  background-color: #dbbb83;
+}
+
+header {
+  background: #944029;;
+  height: 100px;
+  margin-bottom: 30px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+header section {
+  width: 960px;
+  margin: 0 auto;
+}
+
+header section img {
+  margin-top: 12px;
+  float: left;
+  margin-right: 20px;
+}
+
+.heroimage {
+margin-bottom: 30px;
+}
+.heroimage img {
+  align-content: center;
+}
+.topData {
+  float: left;
+}
+h1 {
+  font-family: sans-serif, Georgia, Times,;
+  text-align: center;
+  font-size: 50px;
+  margin: 0px
+
+}
+main {
+  width: 960px;
+  margin: 30px auto;
+  margin-top: 10px;
+}
