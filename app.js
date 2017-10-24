@@ -19,15 +19,15 @@ function Store(location, minSale, maxSale, avgCookiesPerSale) {
 Store.prototype.cookiesSoldPerHour = function() {
   var min = this.minSale;
   var max = this.maxSale;
-  var hoursAndCookies = []; //array that is gets filled by the hoursAndCookies.push
-  var totalCookies = 0; //the starting at 0 and gets added by each sale to create total hour
+  var hoursAndCookies = [];
+  var totalCookies = 0;
   for (var i = 0; i < this.time.length; i++) {
     var ramdonNum = Math.floor(Math.random() * (max - min) + min);
-    var cookiesPerHour =  Math.floor(ramdonNum * this.avgCookiesPerSale); // use to shorten code
-    hoursAndCookies.push(this.time[i] + ': ' + cookiesPerHour); //use to push hoursAndCookies to the empty array
-    totalCookies = totalCookies + cookiesPerHour; //this defines the var totalCookies in this function.
+    var cookiesPerHour =  Math.floor(ramdonNum * this.avgCookiesPerSale);
+    hoursAndCookies.push([this.time[i],cookiesPerHour]);
+    totalCookies = totalCookies + cookiesPerHour;
   }
-  this.totalCookies = totalCookies; // this defines the object totalCookies
+  this.totalCookies = totalCookies;
   this.cookiesPh = hoursAndCookies;
 };
 
@@ -49,42 +49,18 @@ stores.push(alki);
 
 console.log('array of stores', stores);
 
+//printing to the HTML page
 for (var i = 0; i < stores.length; i++) {
   stores[i].cookiesSoldPerHour();
   var hours = [];
+  var newRow = document.createElement('tr');
+
   console.log(stores[i].cookiesPh);
   for (var k = 0; k < stores[i].time.length; k++) {
     hours.push(
-      '<td>' + stores[i].cookiesPh[k] + '</td>'
+      '<td>' + stores[i].cookiesPh[k][1] + '</td>'
     );
   };
-};
-var newRow;
-
-for (var j = 0; j < stores[0].time.length; j++) {
-  newRow = document.createElement('tr');
-  newRow.innerHTML = hours[j];
+  newRow.innerHTML = hours.join('');
   table.appendChild(newRow);
-}
-
-//this is the old data!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-// var shops = [firstAndPike,seaTacAirport,seattleCenter,capitolHill,alki]; //creating a array of all the stores from above
-// for (var j = 0; j < shops.length; j++) {
-//   //creating a for loop to add <p> and <ul> and <l> to each page. we use the var shop from above to title it
-//   var pEl = document.createElement('p'); //creating in in the cloud/memory
-//   pEl.innerHTML = shops[j].location; //giving pEl content in memory/cloud from line 143.
-//   document.body.appendChild(pEl); //we put the pEl on the HTML page itself
-//   var el = document.createElement('ul'); //create a <ul> tage in the cloud/memory.
-//   var shopData = shops[j].cookiesSoldPerHour(); //getting a method of a item from the array[j]
-//   var shopLi = ''; //creating a long list of <li> which we fill will line 152
-//   for( var i = 0; i < shopData.length; i++) { //for loop that makes a <li> and adds line 153 and joins it together with strings to make a sentence.
-//     var lineItem = '<li>' + shopData[i].join(': ') + ' cookeies</li>'; // we created a var for the string for readablity which we use on the next line and we create our <li> here
-//     shopLi = shopLi + lineItem; // we define shopLi
-//   };
-//   var totalLi = '<li>Total:' + shops[j].totalCookies + ' cookies</li>';// we created a var for the string for readablity
-//   el.innerHTML = shopLi + totalLi; // adding it to the bottom of the shopLi <li>
-//   document.body.appendChild(el); // add this to the HTML.
-// };
+};
