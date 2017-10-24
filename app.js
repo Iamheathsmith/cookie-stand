@@ -61,6 +61,7 @@ for (var i = 0; i < stores.length; i++) {
       '<td>' + stores[i].cookiesPh[k][1] + '</td>'
     );
   };
+  hours.push(stores[i].totalCookies);
   newRow.innerHTML = hours.join('');
   table.appendChild(newRow);
 };
