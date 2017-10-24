@@ -157,8 +157,3 @@ for (var j = 0; j < shops.length; j++) {
   el.innerHTML = shopLi + totalLi; // adding it to the bottom of the shopLi <li>
   document.body.appendChild(el); // add this to the HTML.
 };
-
-//seaTacAirport,SeattleCenter,CapitolHill,Alki
-
-
-//and dont use i as your counter or you will mess it up use j
