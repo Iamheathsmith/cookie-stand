@@ -41,7 +41,23 @@ section {
 
 #shell {
   margin: 0 auto;
-  font-size: 20px;
+  font-size: 18px;
+}
+
+#sample_form {
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+fieldset {
+  border: 0;
+}
+
+th, td {
+  padding: 3px;
+}
+thead {
+  text-decoration: underline;
 }
 
 h1 {
