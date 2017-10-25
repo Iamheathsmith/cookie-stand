@@ -1,0 +1,58 @@
+/* app style */
+
+
+body {
+  background-color: #dbbb83;
+  text-transform: capitalize;
+}
+
+header {
+  background: #944029;;
+  height: 100px;
+  margin-bottom: 30px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+header section {
+  width: 960px;
+  margin: 0 auto;
+}
+
+header section img {
+  margin-top: 12px;
+  float: left;
+  margin-right: 20px;
+}
+
+.heroimage {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+img {
+  border-radius: 5px;
+}
+
+section {
+  margin-top: 60px;
+  width: 960px;
+}
+
+#shell {
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  font-size: 50px;
+  margin: 0px
+
+}
+main {
+  width: 960px;
+  margin: 30px auto;
+  margin-top: 10px;
+}
