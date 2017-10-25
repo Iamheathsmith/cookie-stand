@@ -52,7 +52,7 @@ console.log('array of stores', stores);
 for (var i = 0; i < stores.length; i++) {
   stores[i].cookiesSoldPerHour();
   var hourSales = ['<td>' + stores[i].location + '</td>']; //this adds to the front
-  //hourSales.unshift(stores[i].location); //this add it to the front all. 
+  //hourSales.unshift(stores[i].location); //this add it to the front all.
   var newRow = document.createElement('tr'); //creates the row for data to go in from line 60
 
   console.log(stores[i].cookiesPh);
