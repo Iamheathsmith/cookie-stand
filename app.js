@@ -1,5 +1,53 @@
 'use strict';
 
+
+var form = document.getElementById('form-for-stores');
+var table = document.getElementById('store-table');
+var data = [];
+
+function Student (location, minCust, maxCust, avgSale) {
+  this.location = location;
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avgSale = avgSale;
+  this.totalCookies = 0;
+  this.time = [
+    '6am', '7am', '8am','9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'
+  ];
+  this.cookiesPh = [];
+}
+
+function formData(event) { //this whole function just captures data and puss to data []
+  event.preventDefault();
+
+  var location = event.target.location.value;
+  var minCust = event.target.min_cust.value;
+  var maxCust = event.target.max_cust.value;
+  var avgSale = event.target.avg_sale.value;
+
+  data.push(new Student(location, minCust, maxCust, avgSale));
+  createTable();//create our table here
+  form.reset();
+}
+
+function createTable() {
+  var row;
+  for (var i = 0; i < data.length; i++) {
+    row = document.createElement('tr');
+    row.innerHTML = '<td>' + data[i].location + '</td>' +
+    '<td>' + data[i].minCust + '</td>' +
+    '<td>' + data[i].maxCust + '</td>' +
+    '<td>' + data[i].avgSale + '</td>';
+  }
+  table.appendChild(row);
+}
+
+form.addEventListener('submit', formData);
+
+
+
+//old info here
+
 var table = document.getElementById('table_content');
 var stores = [];
 
