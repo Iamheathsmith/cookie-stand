@@ -1,7 +1,6 @@
 'use strict';
 
 var table = document.getElementById('table_content');
-// var hours = [];
 var stores = [];
 
 function Store(location, minSale, maxSale, avgCookiesPerSale) {
@@ -52,16 +51,17 @@ console.log('array of stores', stores);
 //printing to the HTML page
 for (var i = 0; i < stores.length; i++) {
   stores[i].cookiesSoldPerHour();
-  var hours = [];
-  var newRow = document.createElement('tr');
+  var hourSales = [];
+  hourSales.unshift(stores[i].location);
+  var newRow = document.createElement('tr'); //creates the row for data to go in from line 60
 
   console.log(stores[i].cookiesPh);
   for (var k = 0; k < stores[i].time.length; k++) {
-    hours.push(
+    hourSales.push(
       '<td>' + stores[i].cookiesPh[k][1] + '</td>'
     );
   };
-  hours.push(stores[i].totalCookies);
-  newRow.innerHTML = hours.join('');
+  hourSales.push(stores[i].totalCookies); // add the total at the end of the <td>
+  newRow.innerHTML = hourSales.join('');
   table.appendChild(newRow);
 };
