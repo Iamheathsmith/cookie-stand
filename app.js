@@ -6,7 +6,7 @@ var newStore = [];
 
 console.log('array of store made', newStore);
 
-function Store (location, minCust, maxCust, avgSale) {
+function Store (location, minCust, maxCust, avgSale) { // object construtor
   this.location = location;
   this.minCust = minCust;
   this.maxCust = maxCust;
@@ -21,12 +21,12 @@ function Store (location, minCust, maxCust, avgSale) {
 function formData(event) { //this whole function just captures newStore and puss to newStore []
   event.preventDefault();
 
-  var location = event.target.location.value;
+  var location = event.target.location.value; //values from the HTML page
   var minCust = event.target.min_cust.value;
   var maxCust = event.target.max_cust.value;
   var avgSale = event.target.avg_sale.value;
 
-  if (Number(minCust) < Number(maxCust)) {
+  if (Number(minCust) < Number(maxCust)) { //prevents data to be entered if its wrong
     newStore.push(new Store(location, minCust, maxCust, avgSale));
     createTable();//create our table here
     form.reset();
@@ -57,23 +57,21 @@ Store.prototype.cookiesSoldPerHour = function() {
 
 
 
-function createTable() {
+function createTable() { //makes table with data from above
   document.getElementById('store-table').innerHTML = '';
   for (var i = 0; i < newStore.length; i++) {
     if (newStore[i].cookiesPh.length === 0) {
       newStore[i].cookiesSoldPerHour();
     }
-    var hourSales = ['<td>' + newStore[i].location + '</td>'];
+    var hourSales = ['<td>' + newStore[i].location + '</td>']; //adds stores names at the front
     var newRow = document.createElement('tr');
 
     console.log(newStore[i].cookiesPh);
 
     for (var k = 0; k < newStore[i].time.length; k++) {
-      hourSales.push(
-        '<td>' + newStore[i].cookiesPh[k][1] + '</td>'
-      );
+      hourSales.push('<td>' + newStore[i].cookiesPh[k][1] + '</td>'); //makes the cookes per hour
     };
-    hourSales.push(newStore[i].totalCookies);
+    hourSales.push(newStore[i].totalCookies); //adds total to the end
     newRow.innerHTML = hourSales.join('');
     table.appendChild(newRow);
   };
