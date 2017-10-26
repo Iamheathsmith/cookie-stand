@@ -47,8 +47,24 @@ section {
 #form-for-stores {
   display: inline-block;
   margin-bottom: 30px;
+  background-color: rgba(178,87,47, 0.4);
+  border-radius: 45px;
+  font-family: 'Pacifico', cursive;
 }
 
+#submit-btn {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background: #695846;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 3px;
+  border: none;
+}
+
+#store-table {
+  background: #c1b49a;
+}
 fieldset {
   border: 0;
 }

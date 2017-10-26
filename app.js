@@ -43,10 +43,14 @@ Store.prototype.cookiesSoldPerHour = function() {
     var cookiesPerHour =  Math.floor(ramdonNum * this.avgSale);
     hoursAndCookies.push([this.time[i],cookiesPerHour]);
     totalCookies = totalCookies + cookiesPerHour;
+    console.log('random number is:' + ramdonNum);
   }
   this.totalCookies = totalCookies;
   this.cookiesPh = hoursAndCookies;
+
+  console.log(totalCookies);
 };
+
 
 
 function createTable() {
