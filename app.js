@@ -26,9 +26,13 @@ function formData(event) { //this whole function just captures newStore and puss
   var maxCust = event.target.max_cust.value;
   var avgSale = event.target.avg_sale.value;
 
-  newStore.push(new Store(location, minCust, maxCust, avgSale));
-  createTable();//create our table here
-  form.reset();
+  if (Number(minCust) < Number(maxCust)) {
+    newStore.push(new Store(location, minCust, maxCust, avgSale));
+    createTable();//create our table here
+    form.reset();
+  } else {
+    alert ('Max Customers must be greater then min cumstormers');
+  }
 }
 
 console.log('array of store made', newStore);
