@@ -57,7 +57,6 @@ Store.prototype.cookiesSoldPerHour = function() {
   console.log(cookiesPerHour);
 
 };
-
 function calHourTotals() {
   var hourlyTotals;
   for (var column = 0; column < newStores[0].time.length; column++) {
