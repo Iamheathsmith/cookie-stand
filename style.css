@@ -8,14 +8,29 @@ body {
 
 header {
   background: linear-gradient(#944029, #dbbb83);;
-  max-height: 100px;
+  height: 100px;
   width: 100%;
   margin-bottom: 30px;
   margin-bottom: 10px;
   border-radius: 5px;
 }
 
+header img {
+  float: left;
+  width: 260px;
+  display: block;
+  margin-left: 20px;
+  padding-right: 20px;
+}
 
+h1 {
+  float: left;
+  padding-left: 30px;
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  font-size: 50px;
+  margin: 0px
+}
 
 header section img {
   margin-top: 12px;
@@ -23,25 +38,72 @@ header section img {
   margin-right: 20px;
 }
 
-.heroimage {
-  margin-bottom: 30px;
-  text-align: center;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
-  object-fit: scale-down;
-}
-
-img {
-  border-radius: 5px;
-  max-width: 100%;
-  object-fit: scale-down;
-}
-
-section {
-  margin-top: 30px;
+main {
   width: 960px;
+  margin-top: 10px;
+  float: left;
+}
+
+.top-images {
+  float: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.talk-about-self {
+  clear: left;
+  margin: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 24px;
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+}
+
+.middle-data {
+  float: left;
+  margin-left: 60px;
+}
+
+.middle-data img{
+  width: 400px;
+}
+
+.middle-data ul {
+  display: inline-block;
+  font-size: 14px;
+  font-family: 'Pacifico', 'cursive';
+}
+.middle-data ul:last-child {
+  display: inline-block;
+  font-family: 'Pacifico', 'cursive';
+  letter-spacing: 2px;
+  background: radial-gradient(#8d4d2d, #dbba83, #dbba83);
+}
+
+div {
+  clear: both;
+  text-align: center;
+  font-size: 40px;
+  text-decoration: underline;
+}
+
+.lower-data li {
+  display: inline-block;
+  font-size: 24px;
+  font-family: 'Pacifico', 'cursive';
+  margin-left: 30px;
+  letter-spacing: 2px;
+  background: radial-gradient(#8d4d2d, #dbba83, #dbba83);
+  text-align: center;
+  margin-right: 20px;
+}
+
+.lower-img img {
+  float: left;
+  width: 200px;
+  margin-right: 70px;
+  margin-left: 35px;
 }
 
 #shell {
@@ -82,15 +144,25 @@ thead {
   text-decoration: underline;
 }
 
-h1 {
-  font-family: 'Pacifico', cursive;
-  text-align: center;
-  font-size: 7vw;
-  margin: 0px
+nav ul li {
+  display: inline-block;
+  width: 200px;
+  margin-top: 30px;
 }
 
-main {
-  width: 960px;
-  margin: 30px auto;
-  margin-top: 10px;
+nav {
+  margin-left: -60px;
+}
+
+nav ul {
+  text-align: center;
+}
+footer {
+  clear: both;
+  background: linear-gradient(#dbbb83, #944029);;
+  height: 100px;
+  width: 100%;
+  margin-bottom: 30px;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
