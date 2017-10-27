@@ -6,11 +6,40 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   </head>
-  <header><h1>Pats salmon Cookies<h1></header>
+
+  <header class="sales-page">
+    <h1>Pats salmon Cookies</h1>
+  </header>
+
   <body>
     <section class="heroimage">
-      <img src="salmon.png">
-    <section>
+      <img src="img/salmon.png">
+    </section>
+
+    <form id="form-for-stores">
+      <fieldset>
+        <label for="location">location:</label>  <!--lable for the text block-->
+        <input type="text" name="location" placeholder="enter location here" required> <!--the text in the block-->
+      </fieldset>
+
+      <fieldset>
+        <label for="min-cust">min customers:</label> <!--label for the text block-->
+        <input type="number" name="min_cust" placeholder="enter min customers" required> <!--the text in the block-->
+      </fieldset>
+
+      <fieldset>
+        <label for="max-cust">max customers:</label> <!--label for the text block-->
+        <input type="number" name="max_cust" placeholder="enter max customers"  required> <!--the text in the block-->
+      </fieldset>
+
+      <fieldset>
+        <label for="avg-sales">avg customers:</label> <!--label for the text block-->
+        <input type="number" name="avg_sale" placeholder="enter avg customers"  required> <!--the text in the block-->
+      </fieldset>
+
+      <button id="submit-btn" type="submit">add store</button>
+    </form>
+
     <table id="shell">
       <thead>
         <tr>
@@ -33,8 +62,10 @@
           <th>total</th>
         </tr>
       </thead>
-      <tbody id="table_content"><tbody>
-        <!--table content dynamically generrated in JS-->
+      <tbody id="store-table">
+          <!--table content dynamically generrated in JS-->
+      </tbody>
+
     </table>
     <script src="app.js"></script>
   </body>

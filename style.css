@@ -7,16 +7,29 @@ body {
 }
 
 header {
-  background: #944029;;
+  background: linear-gradient(#944029, #dbbb83);
   height: 100px;
+  width: 100%;
   margin-bottom: 30px;
   margin-bottom: 10px;
   border-radius: 5px;
 }
 
-header section {
-  width: 960px;
-  margin: 0 auto;
+header img {
+  float: left;
+  width: 260px;
+  display: block;
+  margin-left: 20px;
+  padding-right: 20px;
+}
+
+h1 {
+  float: left;
+  padding-left: 30px;
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  font-size: 50px;
+  margin: 0px
 }
 
 header section img {
@@ -25,34 +38,140 @@ header section img {
   margin-right: 20px;
 }
 
-.heroimage {
-  margin-bottom: 30px;
+main {
+  width: 960px;
+  margin-top: 10px;
+  float: left;
+}
+
+.top-images {
+  float: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.talk-about-self {
+  clear: left;
+  margin: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 24px;
+  font-family: 'Pacifico', cursive;
   text-align: center;
 }
 
-img {
-  border-radius: 5px;
+.middle-data {
+  float: left;
+  margin-left: 60px;
+
 }
 
-section {
-  margin-top: 60px;
-  width: 960px;
+.middle-data img{
+  width: 400px;
+}
+
+.middle-data ul {
+  display: inline-block;
+  font-size: 14px;
+  font-family: 'Pacifico', 'cursive';
+}
+.middle-data ul:last-child {
+  display: inline-block;
+  font-family: 'Pacifico', 'cursive';
+  letter-spacing: 2px;
+}
+
+div {
+  clear: both;
+  text-align: center;
+  font-size: 40px;
+  text-decoration: underline;
+}
+
+.lower-data li {
+  display: inline-block;
+  font-size: 24px;
+  font-family: 'Pacifico', 'cursive';
+  margin-left: 30px;
+  letter-spacing: 2px;
+  background: radial-gradient(#8d4d2d, #dbba83, #dbba83);
+  text-align: center;
+  margin-right: 20px;
+}
+
+.lower-img img {
+  float: left;
+  width: 200px;
+  margin-right: 70px;
+  margin-left: 35px;
 }
 
 #shell {
   margin: 0 auto;
-  font-size: 20px;
+  font-size: 18px;
 }
 
-h1 {
-  font-family: 'Pacifico', cursive;
+#form-for-stores {
+  margin-bottom: 30px;
   text-align: center;
-  font-size: 50px;
-  margin: 0px
-
+  background-color: rgba(178,87,47, 0.4);
+  border-radius: 45px;
+  font-family: 'Pacifico', cursive;
 }
-main {
-  width: 960px;
-  margin: 30px auto;
+
+#submit-btn {
   margin-top: 10px;
+  margin-bottom: 20px;
+  background: #695846;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 3px;
+  border: none;
+}
+
+#store-table {
+  background: #c1b49a;
+}
+fieldset {
+  border: 0;
+  padding: 5px;
+}
+
+th, td {
+  padding: 3px;
+}
+thead {
+  text-decoration: underline;
+}
+
+a {
+    color: red;
+}
+
+nav ul li {
+  display: inline-block;
+  width: 200px;
+  margin-top: 30px;
+}
+
+nav {
+  margin-left: -60px;
+}
+
+nav ul {
+  text-align: center;
+}
+footer {
+  clear: both;
+  background: linear-gradient(#dbbb83, #944029);
+  height: 100px;
+  width: 100%;
+  margin-bottom: 30px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.sales-page h1 {
+  text-align: center;
+  margin: 0 auto;
 }

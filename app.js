@@ -1,67 +1,115 @@
 'use strict';
 
-var table = document.getElementById('table_content');
-var stores = [];
+var form = document.getElementById('form-for-stores');
+var table = document.getElementById('store-table');
+var newStores = [];
+var totalEachHour = [];
 
-function Store(location, minSale, maxSale, avgCookiesPerSale) {
+console.log('array of store made', newStores);
+console.log('total for each other', totalEachHour);
+
+function Store (location, minCust, maxCust, avgSale) { // object construtor
   this.location = location;
-  this.minSale = minSale;
-  this.maxSale = maxSale;
-  this.avgCookiesPerSale = avgCookiesPerSale;
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avgSale = avgSale;
   this.totalCookies = 0;
+  this.cookiesPh = [];
   this.time = [
     '6am', '7am', '8am','9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'
   ];
-  this.cookiesPh = [];
 }
 
+function formData(event) { //this whole function just captures newStores and push to newStores []
+  event.preventDefault();
+
+  var location = event.target.location.value; //values from the HTML page
+  var minCust = event.target.min_cust.value;
+  var maxCust = event.target.max_cust.value;
+  var avgSale = event.target.avg_sale.value;
+
+  if (Number(minCust) < Number(maxCust)) { //prevents data to be entered if its wrong
+    newStores.push(new Store(location, minCust, maxCust, avgSale));
+    createTable();//create our table here
+    form.reset();
+  } else {
+    alert ('Max Customers must be greater then min cumstormers');
+  }
+}
+
+console.log('array of store made', newStores);
+
 Store.prototype.cookiesSoldPerHour = function() {
-  var min = this.minSale;
-  var max = this.maxSale;
+  var min = this.minCust;
+  var max = this.maxCust;
   var hoursAndCookies = [];
   var totalCookies = 0;
   for (var i = 0; i < this.time.length; i++) {
     var ramdonNum = Math.floor(Math.random() * (max - min) + min);
-    var cookiesPerHour =  Math.floor(ramdonNum * this.avgCookiesPerSale);
+    var cookiesPerHour =  Math.floor(ramdonNum * this.avgSale);
     hoursAndCookies.push([this.time[i],cookiesPerHour]);
     totalCookies = totalCookies + cookiesPerHour;
+    //console.log('random number is:' + ramdonNum);
   }
   this.totalCookies = totalCookies;
   this.cookiesPh = hoursAndCookies;
+
+  console.log(totalCookies);
+  console.log(cookiesPerHour);
+
 };
 
+function calHourTotals() { //finding totals for each hour for stores totals
+  totalEachHour = [];
+  var hourlyTotals; //making a var to be filled
+  for (var column = 0; column < newStores[0].time.length; column++) { //loop in each store to get the sales per hour
+    hourlyTotals = 0; //setting var to 0 for start of counter
+    for (var row = 0; row < newStores.length; row++) { //loop in each time and added it the other stores.
+      hourlyTotals = hourlyTotals + newStores[row].cookiesPh[column][1];
+      console.log(hourlyTotals, column);
+    }
+    totalEachHour.push(hourlyTotals); //push hourlyTotals to totalEachHour at the top.
+    //console.log('test for array', totalEachHour);
+  }
+  console.log('test for array', totalEachHour);
 
+  var SalesTotalHourly = ['<td>' + 'totals' + '</td>']; //adds stores names at the front
+  var rowTwo = document.createElement('tr');
 
-var firstAndPike = new Store('first And Pike', 23, 64, 6.3);
-var seaTacAirport = new Store('SeaTac Airport', 3, 24, 1.2);
-var seattleCenter = new Store('Seattle Center', 11, 38, 3.7);
-var capitolHill = new Store('Capitol Hill', 20, 38, 2.7);
-var alki = new Store('Alki', 2, 16, 4.6);
-
-console.log('store 1', firstAndPike);
-
-stores.push(firstAndPike);
-stores.push(seaTacAirport);
-stores.push(seattleCenter);
-stores.push(capitolHill);
-stores.push(alki);
-
-console.log('array of stores', stores);
-
-//printing to the HTML page
-for (var i = 0; i < stores.length; i++) {
-  stores[i].cookiesSoldPerHour();
-  var hourSales = ['<td>' + stores[i].location + '</td>']; //this adds to the front
-  //hourSales.unshift(stores[i].location); //this add it to the front all.
-  var newRow = document.createElement('tr'); //creates the row for data to go in from line 60
-
-  console.log(stores[i].cookiesPh);
-  for (var k = 0; k < stores[i].time.length; k++) {
-    hourSales.push(
-      '<td>' + stores[i].cookiesPh[k][1] + '</td>'
-    );
+  for (var y = 0; y < totalEachHour.length; y++) {
+    SalesTotalHourly.push('<td>' + totalEachHour[y] + '</td>');//makes the cookes per hour
   };
-  hourSales.push(stores[i].totalCookies); // add the total at the end of the <td>
-  newRow.innerHTML = hourSales.join('');
-  table.appendChild(newRow);
-};
+  SalesTotalHourly.push('<td>' + '</td>');
+  rowTwo.innerHTML = SalesTotalHourly.join('');
+  table.appendChild(rowTwo);
+
+}
+
+
+
+
+function createTable() { //makes table with data from above
+
+  document.getElementById('store-table').innerHTML = ''; //clears the table for new data
+
+  for (var i = 0; i < newStores.length; i++) {
+    if (newStores[i].cookiesPh.length === 0) {
+      newStores[i].cookiesSoldPerHour();
+    }
+    var hourSales = ['<td>' + newStores[i].location + '</td>'];
+    var newRow = document.createElement('tr');
+
+    for (var k = 0; k < newStores[i].time.length; k++) {
+      hourSales.push('<td>' + newStores[i].cookiesPh[k][1] + '</td>'); //makes the cookes per hour
+    };
+
+    hourSales.push(newStores[i].totalCookies); //adds total to the end
+    newRow.innerHTML = hourSales.join('');
+
+    table.appendChild(newRow);
+  };
+
+  calHourTotals();
+}
+
+form.addEventListener('submit', formData);
