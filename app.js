@@ -57,100 +57,85 @@ Store.prototype.cookiesSoldPerHour = function() {
   console.log(cookiesPerHour);
 
 };
-function calHourTotals() {
-  var hourlyTotals;
-  for (var column = 0; column < newStores[0].time.length; column++) {
-    hourlyTotals = 0;
-    for (var row = 0; row < newStores.length; row++) {
+
+function calHourTotals() { //finding totals for each hour for stores totals
+  var hourlyTotals; //making a var to be filled
+  for (var column = 0; column < newStores[0].time.length; column++) { //loop in each store to get the sales per hour
+    hourlyTotals = 0; //setting var to 0 for start of counter
+    for (var row = 0; row < newStores.length; row++) { //loop in each time and added it the other stores.
       hourlyTotals = hourlyTotals + newStores[row].cookiesPh[column][1];
       console.log(hourlyTotals, column);
     }
-    totelEachHour.push(hourlyTotals);
+    totelEachHour.push(hourlyTotals); //push hourlyTotals to totelEachHour at the top.
     //console.log(totelEachHour);
   }
-}
 
-
-function createTable() {
-  //makes table with data from above
-  document.getElementById('store-table').innerHTML = ''; //clears the table for new data
   for (var i = 0; i < newStores.length; i++) {
     if (newStores[i].cookiesPh.length === 0) {
       newStores[i].cookiesSoldPerHour();
     }
-    var hourSales = ['<td>' + newStores[i].location + '</td>']; //adds stores names at the front
+    var SalesTotalHourly = ['<td>' + 'totals' + '</td>']; //adds stores names at the front
+    var rowTwo = document.createElement('tr');
+
+    // for (var y = 0; y < newStores[i].time.length; y++) {
+    //   SalesTotalHourly.push('<td>' + totelEachHour[i] + '</td>'); //makes the cookes per hour
+    // };
+
+  };
+  rowTwo.innerHTML = SalesTotalHourly.join('');
+  table.appendChild(rowTwo);
+}
+
+
+function createTable() { //makes table with data from above
+
+  document.getElementById('store-table').innerHTML = ''; //clears the table for new data
+
+  for (var i = 0; i < newStores.length; i++) {
+    if (newStores[i].cookiesPh.length === 0) {
+      newStores[i].cookiesSoldPerHour();
+    }
+    var hourSales = ['<td>' + newStores[i].location + '</td>'];
+    //var SalesTotalHourly = ['<td>' + 'totals' + '</td>']; //adds stores names at the front
     var newRow = document.createElement('tr');
+    //var rowTwo = document.createElement('tr');
 
     //console.log(newStores[i].cookiesPh);
-    console.log(newStores[i].cookiesPh[i][1]);
+    //console.log(newStores[i].cookiesPh[i][1]);
 
 
     for (var k = 0; k < newStores[i].time.length; k++) {
       hourSales.push('<td>' + newStores[i].cookiesPh[k][1] + '</td>'); //makes the cookes per hour
     };
 
+    // for (var y = 0; y < newStores[i].time.length; y++) {
+    //   SalesTotalHourly.push('<td>' + totelEachHour[i] + '</td>'); //makes the cookes per hour
+    // };
 
     hourSales.push(newStores[i].totalCookies); //adds total to the end
     newRow.innerHTML = hourSales.join('');
+    //rowTwo.innerHTML = SalesTotalHourly.join('');
     table.appendChild(newRow);
+    //table.appendChild(rowTwo);
   };
   calHourTotals();
+
 }
 
 form.addEventListener('submit', formData);
 
-
-
-
-
-
-
-//new code for grand total for each hour.
-
-// Store.protoype.cookiesAtAGivenTime = function(time) {
-//   for (var i = 0; i < this.hoursAndCookies.length; i++) {
-//     if (this.hoursAndCookies[i][0] === time) {
-//       return this.hoursAndCookies[i][1];
-//     }
+// for (var i = 0; i < newStores.length; i++) {
+//   if (newStores[i].cookiesPh.length === 0) {
+//     newStores[i].cookiesSoldPerHour();
 //   }
-// };
-//
-// var totalCookiesFromAllStoresAtAGivenTime = function(time) {
-//   var total = 0;
-//   for (var i = 0; i < newStores.length; i++) {
-//     total = total + newStores[i].cookiesAtAGivenTime(time);
-//   }
-//   return total;
-// };
-
-// var makeHourlySums = function() {
-//   var hourlySum = '';
-//   for (var i = 0; i < this.time.length; i++) {
-//     var runningTotal = 0;
-//     for (var b = 0; b < newStores.length; b++) {
-//       runningTotal = runningTotal + newStores[i].cookiesPerHour;
-//     }
-//     hourlySum = hourlySum + '<td>' + runningTotal + '</td>';
-//   }
-//   return hourlySum;
-// };
-// console.log(makeHourlySums());
+//   var SalesTotalHourly = ['<td>' + 'totals' + '</td>']; //adds stores names at the front
+//   var rowTwo = document.createElement('tr');
 //
 //
-// var makeDailySum = function() {
-//   var dailySum = 0;
-//   for (var y = 0; y = newStores.length; y++); {
-//     dailySum = dailySum + newStores[y].totalCookies;
-//   }
-//   return '<td>' + dailySum + '</td>';
+//   for (var y = 0; y < newStores[i].time.length; y++) {
+//     SalesTotalHourly.push('<td>' + totelEachHour[i] + '</td>'); //makes the cookes per hour
+//   };
+//
+//   rowTwo.innerHTML = SalesTotalHourly.join('');
+//   table.appendChild(rowTwo);
 // };
-// console.log(makeDailySum());
-
-
-
-
-// var salesByHour = 0;
-// for (var y = 0; y < newStores.length; y++) {
-//   salesByHour = salesByHour + salesByHour + cookiesPerHour;
-//   console.log('this is the total for each hour', salesByHour);
-// }
