@@ -7,7 +7,7 @@ body {
 }
 
 header {
-  background: linear-gradient(#944029, #dbbb83);;
+  background: linear-gradient(#944029, #dbbb83);
   height: 100px;
   width: 100%;
   margin-bottom: 30px;
@@ -63,6 +63,7 @@ main {
 .middle-data {
   float: left;
   margin-left: 60px;
+
 }
 
 .middle-data img{
@@ -78,7 +79,6 @@ main {
   display: inline-block;
   font-family: 'Pacifico', 'cursive';
   letter-spacing: 2px;
-  background: radial-gradient(#8d4d2d, #dbba83, #dbba83);
 }
 
 div {
@@ -144,6 +144,10 @@ thead {
   text-decoration: underline;
 }
 
+a {
+    color: red;
+}
+
 nav ul li {
   display: inline-block;
   width: 200px;
@@ -159,10 +163,15 @@ nav ul {
 }
 footer {
   clear: both;
-  background: linear-gradient(#dbbb83, #944029);;
+  background: linear-gradient(#dbbb83, #944029);
   height: 100px;
   width: 100%;
   margin-bottom: 30px;
   margin-bottom: 10px;
   border-radius: 5px;
+}
+
+.sales-page h1 {
+  text-align: center;
+  margin: 0 auto;
 }
