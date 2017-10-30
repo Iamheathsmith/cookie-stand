@@ -6,6 +6,7 @@ body {
   text-transform: capitalize;
   width: 960px;
   align-content: center;
+  margin: auto;
 }
 
 header {
