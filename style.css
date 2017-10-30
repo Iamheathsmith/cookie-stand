@@ -4,6 +4,8 @@
 body {
   background-color: #dbbb83;
   text-transform: capitalize;
+  width: 960px;
+  align-content: center;
 }
 
 header {
@@ -46,43 +48,57 @@ main {
 
 .top-images {
   float: left;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  margin-left: 100px;
+  margin-bottom: 40px;
 }
 
-.talk-about-self {
-  clear: left;
-  margin: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
+.talk-about-self p {
+  clear: both;
+  display: block;
+  margin: auto;
   font-size: 24px;
   font-family: 'Pacifico', cursive;
   text-align: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  width: 900px;
 }
 
 .middle-data {
   float: left;
-  margin-left: 60px;
-
+  margin-left: 30px;
+  width: 960px;
+  display: inline-block;
 }
 
-.middle-data img{
+.middle-img {
+  width: 400px;
+  display: initial;
+}
+
+.middle-img img {
   width: 400px;
 }
 
-.middle-data ul {
-  display: inline-block;
+.middle-list {
+  float: right;
+  margin-right: 120px;
   font-size: 14px;
   font-family: 'Pacifico', 'cursive';
 }
+
+.list-times {
+  float: right;
+}
+
 .middle-data ul:last-child {
-  display: inline-block;
   font-family: 'Pacifico', 'cursive';
   letter-spacing: 2px;
 }
 
-div {
+.lower-title {
   clear: both;
+  margin-top: 30px;
   text-align: center;
   font-size: 40px;
   text-decoration: underline;
@@ -92,18 +108,19 @@ div {
   display: inline-block;
   font-size: 24px;
   font-family: 'Pacifico', 'cursive';
-  margin-left: 30px;
+  margin-left: 20px;
   letter-spacing: 2px;
   background: radial-gradient(#8d4d2d, #dbba83, #dbba83);
   text-align: center;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 .lower-img img {
   float: left;
   width: 200px;
   margin-right: 70px;
-  margin-left: 35px;
+  margin-left: 45px;
+  margin-bottom: 60px;
 }
 
 #shell {
@@ -145,7 +162,7 @@ thead {
 }
 
 a {
-    color: red;
+  color: brown;
 }
 
 nav ul li {
